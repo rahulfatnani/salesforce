@@ -1,0 +1,158 @@
+Id,Name,DeveloperName,NamespacePrefix,OwnerId,FolderId,FolderName,BrandTemplateId,EnhancedLetterheadId,TemplateStyle,IsActive,TemplateType,Encoding,Description,Subject,HtmlValue,Body,TimesUsed,LastUsedDate,CreatedDate,CreatedById,LastModifiedDate,LastModifiedById,SystemModstamp,ApiVersion,Markup,UiType,RelatedEntityType,IsBuilderContent
+00XdM00000444HFUAY,SUPPORT:  Self-Service New Comment Notification (SAMPLE),SUPPORTSelfServiceNewCommentNotificationSAMPLE,,005dM000004WE3FQAW,00DdM0000078k5rUAA,Unfiled Public Classic Email Templates,,,none,True,text,ISO-8859-1,Sample email template that can be sent to your Self-Service customers to notify them a public comment has been added to their case.,Your case {!Case.CaseNumber} has been updated,,"
+
+Your case # {!Case.CaseNumber}: {!Case.Subject} has been updated.  Please click on the link below
+to view this case on the Self-Service portal.
+<insert the link to your Self-Service portal login page here>
+
+{!Organization.Name} Customer Support
+",,,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,,,Aloha,,False
+00XdM00000444HGUAY,Support: Self-Service Reset Password,SupportSelfServiceResetPassword,,005dM000004WE3FQAW,00DdM0000078k5rUAA,Unfiled Public Classic Email Templates,,,none,True,text,UTF-8,Notification of new password when self-service password is reset,Your new GenWatt Self-Service password,,"Dear {!Contact.FirstName}, 
+
+Thank you for using GenWatt's customer self-service portal.  Your new password is below. 
+
+Thank you.
+
+GenWatt Customer Support",,,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,,,Aloha,,False
+00XdM00000444HHUAY,Support: Self-Service New Login and Password,SupportSelfServiceNewLoginandPassword,,005dM000004WE3FQAW,00DdM0000078k5rUAA,Unfiled Public Classic Email Templates,,,none,True,text,UTF-8,Notification of login and password to new self-service user,Your GenWatt Self-Service login and password,,"Dear {!Contact.FirstName}, 
+
+Your GenWatt Self-Service login and password information is below. 
+
+Thank you.
+
+GenWatt Customer Support",,,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,,,Aloha,,False
+00XdM00000444HIUAY,Support: Case Assignment Notification,SupportCaseAssignmentNotification,,005dM000004WE3FQAW,00DdM0000078k5rUAA,Unfiled Public Classic Email Templates,,,none,True,text,UTF-8,Notification to rep when case is auto-assigned,"Case {!Case.CaseNumber}:""{!Case.Subject}"" auto-assigned to you",,"The following case has been auto-assigned to your team.  The case needs to be resolved within our standard service levels.
+
+Company: {!Account.Name}
+Contact: {!Contact.Name}
+Subject: {!Case.Subject}
+Description: {!Case.Description}",,,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,,,Aloha,,False
+00XdM00000444HJUAY,Support: Case Created (Phone Inquiries),SupportCaseCreatedPhoneInquiries,,005dM000004WE3FQAW,00DdM0000078k5rUAA,Unfiled Public Classic Email Templates,,,none,True,text,UTF-8,Notification to customer about case created through phone call,Your Genwatt case number {!Case.CaseNumber} has been recorded,,"Dear {!Contact.FirstName},
+
+Thank you for contacting us with your inquiriy.
+
+Your reference # for this case is: {!Case.CaseNumber} The subject of your case is: ""{!Case.Subject}""
+
+We look forward to speaking with you soon.
+{!User_Name}
+{!User.Phone}
+{!User.Email}
+{!Organization.Name}",,,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,,,Aloha,,False
+00XdM00000444HKUAY,Support: Case Created (Web Inquiries),SupportCaseCreatedWebInquiries,,005dM000004WE3FQAW,00DdM0000078k5rUAA,Unfiled Public Classic Email Templates,,,none,True,text,UTF-8,Notification to customer about case created online,{!Organization.Name} Case {!Case.CaseNumber}: {!Case.Subject},,"Dear {!Case.SuppliedName}, 
+
+Thank you for submitting your question to us online.  Case #{!Case.CaseNumber}: ""{!Case.Subject}"" has been created and a {!Organization.Name} Customer Advocate will get back to you within the next 24 hours.
+
+Thank you,
+
+Customer Advocate Team
+{!Organization.Name}",,,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,,,Aloha,,False
+00XdM00000444HLUAY,Embed_a_Survey_Link,Embed_a_Survey_Link,,005dM000004WE3FQAW,00DdM0000078k5rUAA,Public Email Templates,,,none,True,custom,,Boilerplate content for when you embed a link to a survey in an email. You can't embed a survey link if you edit the merge fields or delete this template.,Your feedback is important. Help us to improve by taking this survey.,"<div style=""font-size: 0.875rem; font-family: 'Salesforce Sans',Arial,sans-serif;"">Hello {{{Recipient.FirstName}}}...<br/>
+            <br/>
+            <p style=""text-align: center;""><span><a href=""[[SURVEY_INVITATION_URL]]"" style=""[[DISABLE_LINK]] vertical-align: middle; border: 1px solid rgb(221, 219, 218); transition: border .15s linear; background-color: rgb(0, 112, 210); border-color: rgb(0, 112, 210); color: rgb(255, 255, 255); display: inline-block; background-clip: border-box; border: 1px solid transparent; border-radius: .25rem; line-height: 1.875rem; text-decoration: none; -webkit-appearance: none; white-space: normal; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; padding: 0 1rem;"" target=""_blank"">Open Survey</a></span></p>
+            <br/>
+            Thank you,<br/>
+            {{{Organization.Name}}}</div>",,,,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,,,SFX,SurveyQuestion,False
+00XdM00000444HMUAY,Embed_a_Survey_Question,Embed_a_Survey_Question,,005dM000004WE3FQAW,00DdM0000078k5rUAA,Public Email Templates,,,none,True,custom,,Boilerplate content for when you embed a link to a survey in an email. You can't embed a survey question if you edit the merge fields or delete this template.,Your feedback is important. Help us to improve by taking this survey.,"<div style=""font-size: 0.875rem; font-family: 'Salesforce Sans',Arial,sans-serif;"">Hello {{{Recipient.FirstName}}}...<br/>
+            <br/>
+            <div style=""text-align: center;"">{{{SurveyQuestion.QuestionName}}}</div><br/><div style=""text-align: center;"">{{{SurveyQuestion.QuestionHtmlContent}}}</div><br/>
+            <br/>
+            Thank you,<br/>
+            {{{Organization.Name}}}</div>",,,,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,,,SFX,SurveyQuestion,False
+00XdM00000444HNUAY,Sales: New Customer Email,SalesNewCustomerEmail,,005dM000004WE3FQAW,00DdM0000078k5rUAA,Unfiled Public Classic Email Templates,,,none,True,text,UTF-8,Email to new customers,Welcome to the GenWatt Community,,"Dear {!Contact.FirstName},
+
+All of us at GenWatt are glad to have {!Account.Name} as a customer. 
+
+I would like to introduce myself as your Account Manager.  Should you have any questions, please feel free to call me at {!User.Phone} or email me at {!User.Email}. 
+
+You can also contact GenWatt on the following numbers: 
+
+Main: 810-545-1000
+Sales: 810-545-1222
+Customer Service & Support: 810-545-1333
+Fax: 810-545-1001
+
+I am confident GenWatt will serve you well and hope to see our relationship grow over the years.
+
+Best Regards, 
+{!User.Name}",,,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,,,Aloha,,False
+00XdM00000444HOUAY,SUPPORT:  Self-Service Reset Password  (SAMPLE),SUPPORTSelfServiceResetPasswordSAMPLE,,005dM000004WE3FQAW,00DdM0000078k5rUAA,Unfiled Public Classic Email Templates,,,none,True,text,ISO-8859-1,Notification of new password when Self-Service password is reset,Your new {!Organization.Name} Self-Service password,,"
+
+Dear {!Contact.FirstName},
+
+Thank you for contacting customer support.  Your new Self-Service portal password can be found below.
+
+Thank you,
+
+{!User_Name}
+{!Organization.Name} Customer Support
+",,,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,,,Aloha,,False
+00XdM00000444HPUAY,Commerce Reorder Portal: Invitation,CommerceReorderPortalInvitation,,005dM000004WWvKQAW,00DdM0000078k5rUAA,Unfiled Public Classic Email Templates,,,none,True,custom,UTF-8,Invite a contact to a Commerce Reorder Portal.,Welcome to {!Community_Name},"
+            <html>
+            Dear {!Receiving_User.FirstName},
+            <p>
+            Check out this reorder portal for a simpler way to place repeat orders with {!Organization.Name}. You can view your past orders, modify quantities, place new orders, and view order statuses.
+            </p>
+            <p>
+            Click the link for access: <a href={!Community_URL}>{!Community_Name}</a>
+            </p>
+            Regards,<br>
+            {!Sending_User.Name}
+            </html>
+        ","
+            <html>
+            Dear {!Receiving_User.FirstName},
+            <p>
+            Check out this reorder portal for a simpler way to place repeat orders with {!Organization.Name}. You can view your past orders, modify quantities, place new orders, and view order statuses.
+            </p>
+            <p>
+            Click the link for access: <a href={!Community_URL}>{!Community_Name}</a>
+            </p>
+            Regards,<br>
+            {!Sending_User.Name}
+            </html>
+        ",,,1720590630000,005dM000004WWvKQAW,1720590630000,005dM000004WWvKQAW,1720590630000,,,Aloha,,False
+00XdM00000444HQUAY,Support: Escalated Case Reassignment,SupportEscalatedCaseReassignment,,005dM000004WE3FQAW,00DdM0000078k5rUAA,Unfiled Public Classic Email Templates,,,none,True,text,UTF-8,Case reassignment email to new case owner on escalation,ESCALATED CASE {!Case.CaseNumber},,"The following case has been escalated to you since it is nearing its SLA time limit and is still open.
+
+Company: {!Account.Name}
+Service Level: {!Account_Service_Level}
+Product: {!Case.Product__c}
+Case #: {!Case.CaseNumber}
+Case Subject: {!Case.Subject}",,,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,,,Aloha,,False
+00XdM00000444HRUAY,Support: Escalated Case Notification,SupportEscalatedCaseNotification,,005dM000004WE3FQAW,00DdM0000078k5rUAA,Unfiled Public Classic Email Templates,,,none,True,text,UTF-8,Notification email on case escalation,ESCALATED CASE {!Case.CaseNumber},,"The following case has been escalated to the Escalated Queue. 
+
+Company: {!Account.Name} 
+Service Level: {!Account_Service_Level} 
+Product: {!Case.Product__c} 
+Case #: {!Case.CaseNumber} 
+Case Subject: {!Case.Subject}",,,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,,,Aloha,,False
+00XdM00000444HSUAY,Marketing: Product Inquiry Response,MarketingProductInquiryResponse,,005dM000004WE3FQAW,00DdM0000078k5rUAA,Unfiled Public Classic Email Templates,,,none,True,text,UTF-8,Standard email response to website product inquiries,GenWatt: Thanks for your inquiry,,"Dear {!Lead.Name},
+
+Thank you for your inquiry about GenWatt's products.
+
+A representative will contact you shortly.
+
+Thanks,
+The GenWatt Team",,,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,,,Aloha,,False
+00XdM00000444HTUAY,Support: Case Response,SupportCaseResponse,,005dM000004WE3FQAW,00DdM0000078k5rUAA,Unfiled Public Classic Email Templates,,,none,True,text,UTF-8,Standardized template for responses to customer inquiries,Response to your Genwatt Case {!Case.CaseNumber}: {!Case.Subject},,"Dear {!Contact.FirstName},
+
+{!Case.Solution_Description}
+
+Thank you,
+
+{!User.Name}
+{!Organization.Name}
+
+Your comment:
+
+{!Case.Description}",,,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,,,Aloha,,False
+00XdM00000444HUUAY,SUPPORT:  Self-Service New User Login Information (SAMPLE),SUPPORTSelfServiceNewUserLoginInformationSAMPLE,,005dM000004WE3FQAW,00DdM0000078k5rUAA,Unfiled Public Classic Email Templates,,,none,True,text,ISO-8859-1,Notification of login and password to new Self-Service user,Your {!Organization.Name} Self-Service username and password,,"
+
+Dear {!Contact.FirstName},
+
+Your {!Organization.Name} Self-Service portal login and password information is below.
+
+Thank you,
+
+{!Organization.Name} Customer Support
+",,,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,,,Aloha,,False
+00XdM000004oLyDUAU,Approve Opportunity Discount,Approve_Opportunity_Discount,,005dM000004WE3FQAW,00DdM0000078k5rUAA,Unfiled Public Classic Email Templates,,,none,True,text,ISO-8859-1,,Please approve this discounted opportunity,,"{!User.Manager}, The {!Opportunity.Name} has been discounted. Please approve this discount. Thank you.",,,1721724551000,005dM000004WE3FQAW,1721724551000,005dM000004WE3FQAW,1721724551000,,,Aloha,,False
