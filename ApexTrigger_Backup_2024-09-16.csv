@@ -1,0 +1,13 @@
+Id,NamespacePrefix,Name,TableEnumOrId,UsageBeforeInsert,UsageAfterInsert,UsageBeforeUpdate,UsageAfterUpdate,UsageBeforeDelete,UsageAfterDelete,UsageIsBulk,UsageAfterUndelete,ApiVersion,Status,IsValid,BodyCrc,Body,LengthWithoutComments,CreatedDate,CreatedById,LastModifiedDate,LastModifiedById,SystemModstamp
+01qdM000001JYLZQA4,,ContactTrigger,Contact,True,False,True,False,False,False,False,False,61.0,Active,False,2124598912.0,"trigger ContactTrigger on Contact (before insert, before update) {
+    for (Contact con : Trigger.new) {
+        
+        if (con.Account_Checkbox__c == true) {
+            
+            con.Status__c = 'Active';
+        } else {
+            
+            con.Status__c = 'Inactive';
+        }
+    }
+}",265,1723455613000,005dM000004WE3FQAW,1723455648000,005dM000004WE3FQAW,1725566213000
