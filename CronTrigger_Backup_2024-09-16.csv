@@ -1,0 +1,2 @@
+Id,CronJobDetailId,NextFireTime,PreviousFireTime,State,StartTime,EndTime,CronExpression,TimeZoneSidKey,OwnerId,LastModifiedById,CreatedById,CreatedDate,TimesTriggered
+08edM00000238WFQAY,08adM00000237TjQAI,1726476600000,1726390208664,WAITING,1720549800000,,"0 20 14 ? * 1,2,3,4,5,6,7",Asia/Kolkata,005dM000004WWvJQAW,005dM000004WWvJQAW,005dM000004WWvJQAW,1720590734000,68
