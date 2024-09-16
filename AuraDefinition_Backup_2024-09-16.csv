@@ -1,0 +1,246 @@
+Id,IsDeleted,CreatedDate,CreatedById,LastModifiedDate,LastModifiedById,SystemModstamp,AuraDefinitionBundleId,DefType,Format,Source
+0AddM000000uTDpSAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtVSAQ,COMPONENT,XML,(hidden)
+0AddM000000uTDqSAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtVSAQ,CONTROLLER,JS,(hidden)
+0AddM000000uTDrSAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtVSAQ,HELPER,JS,(hidden)
+0AddM000000uTDsSAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtVSAQ,RENDERER,JS,(hidden)
+0AddM000000uTDtSAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtWSAQ,COMPONENT,XML,(hidden)
+0AddM000000uTDuSAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtWSAQ,CONTROLLER,JS,(hidden)
+0AddM000000uTDvSAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtWSAQ,HELPER,JS,(hidden)
+0AddM000000uTDwSAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtWSAQ,RENDERER,JS,(hidden)
+0AddM000000uTDxSAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtXSAQ,COMPONENT,XML,(hidden)
+0AddM000000uTDySAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtXSAQ,CONTROLLER,JS,(hidden)
+0AddM000000uTDzSAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtYSAQ,COMPONENT,XML,(hidden)
+0AddM000000uTE0SAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtYSAQ,CONTROLLER,JS,(hidden)
+0AddM000000uTE1SAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtYSAQ,RENDERER,JS,(hidden)
+0AddM000000uTE2SAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtZSAQ,COMPONENT,XML,(hidden)
+0AddM000000uTE3SAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtZSAQ,CONTROLLER,JS,(hidden)
+0AddM000000uTE4SAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtZSAQ,HELPER,JS,(hidden)
+0AddM000000uTE5SAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtaSAA,EVENT,XML,(hidden)
+0AddM000000uTE6SAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtbSAA,COMPONENT,XML,(hidden)
+0AddM000000uTE7SAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtbSAA,CONTROLLER,JS,(hidden)
+0AddM000000uTE8SAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtbSAA,HELPER,JS,(hidden)
+0AddM000000uTE9SAM,False,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,0AbdM000000nqtbSAA,STYLE,CSS,(hidden)
+0AddM000000uUY5SAM,False,1720591797000,005dM000004WE3FQAW,1720591797000,005dM000004WE3FQAW,1720591797000,0AbdM000000nrw1SAA,COMPONENT,XML,"<aura:component
+    implements=""lightning:appHomeTemplate""
+    description=""Three columns layout""
+    access=""global""
+>
+    <aura:attribute name=""left"" type=""Aura.Component[]"" access=""global"" />
+    <aura:attribute name=""center"" type=""Aura.Component[]"" access=""global"" />
+    <aura:attribute name=""right"" type=""Aura.Component[]"" access=""global"" />
+    <div aura:id=""container"">
+        <aura:if isTrue=""{!not($Browser.isPhone)}"">
+            <!-- If Tablet or Desktop, 2-7-3 regions -->
+            <lightning:layout>
+                <lightning:layoutItem aura:id=""leftColumn"" size=""2"">
+                    {!v.left}
+                </lightning:layoutItem>
+                <lightning:layoutItem
+                    aura:id=""centerColumn""
+                    size=""7""
+                    class=""slds-var-p-horizontal_small""
+                >
+                    {!v.center}
+                </lightning:layoutItem>
+                <lightning:layoutItem aura:id=""rightColumn"" size=""3"">
+                    {!v.right}
+                </lightning:layoutItem>
+            </lightning:layout>
+        </aura:if>
+        <aura:if isTrue=""{!$Browser.isPhone}"">
+            <!-- If Phone, single region -->
+            <lightning:layout>
+                <lightning:layoutItem
+                    aura:id=""centerColumn""
+                    size=""12""
+                    class=""center""
+                >
+                    {!v.left} {!v.center} {!v.right}
+                </lightning:layoutItem>
+            </lightning:layout>
+        </aura:if>
+    </div>
+</aura:component>"
+0AddM000000uUY6SAM,False,1720591797000,005dM000004WE3FQAW,1720591797000,005dM000004WE3FQAW,1720591797000,0AbdM000000nrw1SAA,DESIGN,XML,"<design:component label=""Three columns layout: 2 7 3"">
+    <flexipage:template>
+        <flexipage:region name=""left"" defaultWidth=""SMALL"" />
+        <flexipage:region name=""center"" defaultWidth=""LARGE"" />
+        <flexipage:region name=""right"" defaultWidth=""SMALL"" />
+    </flexipage:template>
+</design:component>"
+0AddM000000uUY7SAM,False,1720591797000,005dM000004WE3FQAW,1720591797000,005dM000004WE3FQAW,1720591797000,0AbdM000000nrw1SAA,SVG,SVG,"<?xml version=""1.0"" encoding=""UTF-8"" standalone=""no""?>
+<svg width=""120px"" height=""120px"" viewBox=""0 0 120 120"" version=""1.1"" xmlns=""http://www.w3.org/2000/svg"" xmlns:xlink=""http://www.w3.org/1999/xlink"">
+	<g stroke=""none"" stroke-width=""1"" fill=""none"" fill-rule=""evenodd"">
+		<path d=""M120,108 C120,114.6 114.6,120 108,120 L12,120 C5.4,120 0,114.6 0,108 L0,12 C0,5.4 5.4,0 12,0 L108,0 C114.6,0 120,5.4 120,12 L120,108 L120,108 Z"" id=""Shape"" fill=""#2A739E""/>
+		<path d=""M77.7383308,20 L61.1640113,20 L44.7300055,63.2000173 L56.0543288,63.2000173 L40,99.623291 L72.7458388,54.5871812 L60.907727,54.5871812 L77.7383308,20 Z"" id=""Path-1"" fill=""#FFFFFF""/>
+	</g>
+</svg>"
+0AddM000000uUY8SAM,False,1720591797000,005dM000004WE3FQAW,1720591810000,005dM000004WE3FQAW,1720591810000,0AbdM000000nrw2SAA,COMPONENT,XML,"<aura:component
+    implements=""flexipage:availableForAllPageTypes""
+    controller=""PropertyController""
+    access=""global""
+>
+    <ltng:require
+        styles=""{!$Resource.leaflet + '/leaflet.css'}""
+        scripts=""{!$Resource.leaflet + '/leaflet.js'}""
+        afterScriptsLoaded=""{!c.handleJSLoaded}""
+    />
+
+    <aura:attribute name=""searchKey"" type=""String"" default="""" />
+    <aura:attribute name=""maxPrice"" type=""integer"" default=""1200000"" />
+    <aura:attribute name=""minBedrooms"" type=""integer"" default=""0"" />
+    <aura:attribute name=""minBathrooms"" type=""integer"" default=""0"" />
+    <aura:attribute name=""properties"" type=""Object[]"" default=""[]"" />
+    <aura:attribute name=""center"" type=""SObject"" access=""global"" />
+    <aura:attribute name=""jsLoaded"" type=""boolean"" default=""false"" />
+
+    <aura:registerEvent name=""selectSObject"" type=""ltng:selectSObject"" />
+
+    <aura:handler name=""init"" value=""{!this}"" action=""{!c.handleInit}"" />
+
+    <lightning:messageChannel
+        type=""FiltersChange__c""
+        onMessage=""{!c.handleFiltersChange}""
+        aura:id=""filtersChangeMessageChannel""
+    />
+    <lightning:messageChannel
+        type=""PropertySelected__c""
+        aura:id=""propertySelectedMessageChannel""
+    />
+
+    <article class=""slds-card"">
+        <div aura:id=""map""></div>
+    </article>
+</aura:component>"
+0AddM000000uUY9SAM,False,1720591797000,005dM000004WE3FQAW,1720591797000,005dM000004WE3FQAW,1720591797000,0AbdM000000nrw2SAA,CONTROLLER,JS,"({
+    handleInit: function (component, event, helper) {
+        helper.getProperties(component);
+    },
+
+    handleFiltersChange: function (component, message, helper) {
+        if (message !== null) {
+            component.set('v.searchKey', message.getParam('searchKey'));
+            component.set('v.maxPrice', message.getParam('maxPrice'));
+            component.set('v.minBedrooms', message.getParam('minBedrooms'));
+            component.set('v.minBathrooms', message.getParam('minBathrooms'));
+            helper.getProperties(component);
+        }
+    },
+
+    handleJSLoaded: function (component) {
+        component.set('v.jsLoaded', true);
+    }
+});"
+0AddM000000uUYASA2,False,1720591797000,005dM000004WE3FQAW,1720591797000,005dM000004WE3FQAW,1720591797000,0AbdM000000nrw2SAA,HELPER,JS,"({
+    getProperties: function getProperties(component) {
+        var action = component.get('c.getPagedPropertyList');
+
+        action.setParams({
+            searchKey: component.get('v.searchKey'),
+            maxPrice: component.get('v.maxPrice'),
+            minBedrooms: component.get('v.minBedrooms'),
+            minBathrooms: component.get('v.minBathrooms'),
+            pageSize: 100,
+            pageNumber: 1
+        });
+        action.setCallback(this, function (response) {
+            var state = response.getState();
+
+            if (state === 'SUCCESS') {
+                var pagedResults = response.getReturnValue();
+
+                component.set('v.properties', pagedResults.records);
+            } else {
+                var toastEvent = $A.get('e.force:showToast');
+
+                toastEvent.setParams({
+                    title: 'Error',
+                    message: 'Error retrieving properties.',
+                    type: 'error'
+                });
+                toastEvent.fire();
+            }
+        });
+        $A.enqueueAction(action);
+    }
+});"
+0AddM000000uUYBSA2,False,1720591797000,005dM000004WE3FQAW,1720591797000,005dM000004WE3FQAW,1720591797000,0AbdM000000nrw2SAA,STYLE,CSS,".THIS .leaflet-container {
+    height: 550px;
+}
+
+.THIS header {
+    display: none;
+}"
+0AddM000000uUYCSA2,False,1720591797000,005dM000004WE3FQAW,1720591797000,005dM000004WE3FQAW,1720591797000,0AbdM000000nrw2SAA,RENDERER,JS,"({
+    rerender: function (component) {
+        var nodes = this.superRerender();
+
+        // If the Leaflet library is not yet loaded, we can't draw the map: return
+        if (!window.L) {
+            return nodes;
+        }
+
+        // Draw the map if it hasn't been drawn yet
+        if (!component.map) {
+            var mapElement = component.find('map').getElement();
+
+            component.map = window.L.map(mapElement, {
+                zoomControl: true,
+                tap: false
+                // eslint-disable-next-line no-magic-numbers
+            }).setView([42.356045, -71.08565], 13);
+            component.map.scrollWheelZoom.disable();
+            var url =
+                'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}';
+
+            window.L.tileLayer(url).addTo(component.map);
+        }
+
+        var center = component.get('v.center');
+
+        if (center && center.lat && center.long) {
+            component.map.setView(center);
+        }
+
+        if (component.layerGroup) {
+            component.map.removeLayer(component.layerGroup);
+        }
+
+        var properties = component.get('v.properties');
+
+        if (!properties) {
+            return nodes;
+        }
+        var markers = [];
+
+        properties.forEach(function (property) {
+            var latLng = [
+                property.Location__Latitude__s,
+                property.Location__Longitude__s
+            ];
+            var myIcon = window.L.divIcon({
+                className: 'my-div-icon',
+                html: '<svg xmlns=""http://www.w3.org/2000/svg"" width=""24"" height=""24"" viewBox=""0 0 52 52""><path fill=""#DB4437"" d=""m26 2c-10.5 0-19 8.5-19 19.1 0 13.2 13.6 25.3 17.8 28.5 0.7 0.6 1.7 0.6 2.5 0 4.2-3.3 17.7-15.3 17.7-28.5 0-10.6-8.5-19.1-19-19.1z m0 27c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z""></path></svg>'
+            });
+            var marker = window.L.marker(latLng, { icon: myIcon });
+
+            marker.propertyId = property.Id;
+            var callback = $A.getCallback(function (event) {
+                var mc = component.find('propertySelectedMessageChannel');
+
+                mc.publish({ propertyId: event.target.propertyId });
+            });
+
+            marker.on('click', callback);
+            markers.push(marker);
+        });
+
+        component.layerGroup = window.L.layerGroup(markers);
+        component.layerGroup.addTo(component.map);
+
+        return nodes;
+    }
+});"
+0AddM000000uUYDSA2,False,1720591797000,005dM000004WE3FQAW,1720591797000,005dM000004WE3FQAW,1720591797000,0AbdM000000nrw2SAA,DESIGN,XML,"<design:component label=""Aura Property List as a Map"">
+
+</design:component>"
