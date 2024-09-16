@@ -1,0 +1,4 @@
+Id,IsDeleted,SobjectType,DeveloperName,Language,MasterLabel,NamespacePrefix,CreatedDate,CreatedById,LastModifiedDate,LastModifiedById,SystemModstamp,MatchEngine,BooleanFilter,Description,RuleStatus,SobjectSubtype
+0JDdM000003iGTxWAM,False,Contact,Standard_Contact_Match_Rule_v1_1,en_US,Standard Contact Matching Rule v1.1,,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,FuzzyMatchEngine,,Matching rule for contact records.,Inactive,
+0JDdM000003iGTyWAM,False,Lead,Standard_Lead_Match_Rule_v1_0,en_US,Standard Lead Matching Rule v1.0,,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,FuzzyMatchEngine,,Matching rule for lead records.,Inactive,
+0JDdM000003iGTzWAM,False,Account,Standard_Account_Match_Rule_v1_0,en_US,Standard Account Matching Rule v1.0,,1720590630000,005dM000004WE3FQAW,1720590630000,005dM000004WE3FQAW,1720590630000,FuzzyMatchEngine,,Matching rule for account records.,Inactive,
