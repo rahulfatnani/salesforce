@@ -1,0 +1,3 @@
+Id,Name,DeveloperName,Type,Description,TableEnumOrId,LockType,State,CreatedDate,CreatedById,LastModifiedDate,LastModifiedById,SystemModstamp
+04adM000000EbULQA0,Approve Opportunity Discount,Approve_Opportunity_Discount,Approval,,Opportunity,Admin,Inactive,1721724919000,005dM000004WE3FQAW,1721725026000,005dM000004WE3FQAW,1721725026000
+04adM000000Ebm5QAC,Approve New Account,Approve_New_Account,Approval,,Account,Admin,Active,1721726032000,005dM000004WE3FQAW,1721726215000,005dM000004WE3FQAW,1721726215000
