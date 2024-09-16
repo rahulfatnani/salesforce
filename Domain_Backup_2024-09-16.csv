@@ -1,0 +1,3 @@
+Id,DomainType,Domain,OptionsHstsPreload,CnameTarget,HttpsOption,CreatedDate,CreatedById,LastModifiedDate,LastModifiedById,SystemModstamp
+0I4dM000001SpNESA0,DNS,mindful-narwhal-38mkxl-dev-ed.trailblaze.my.salesforce-sites.com,True,,SitesAlt,1720590897000,005dM000004WE3FQAW,1720590897000,005dM000004WE3FQAW,1720590897000
+0I4dM000001SpNDSA0,DNS,mindful-narwhal-38mkxl-dev-ed.trailblaze.my.site.com,True,,CommunityAlt,1720590897000,005dM000004WE3FQAW,1720590897000,005dM000004WE3FQAW,1720590897000
