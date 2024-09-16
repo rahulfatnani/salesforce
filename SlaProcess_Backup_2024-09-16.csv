@@ -1,0 +1,2 @@
+Id,Name,NameNorm,Description,IsActive,StartDateField,SobjectType,CreatedDate,CreatedById,LastModifiedDate,LastModifiedById,SystemModstamp,IsDeleted,BusinessHoursId,LastViewedDate
+552dM000003ZItBQAW,Standard Case,standard case,Runs the standard SLA process for Case.,True,WorkOrder.CreatedDate,Case,1720590630000,005dM000004WWvKQAW,1720590630000,005dM000004WWvKQAW,1720590630000,False,,1726225985000
