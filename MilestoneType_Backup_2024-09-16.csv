@@ -1,0 +1,4 @@
+Id,Name,Description,RecurrenceType,SystemModstamp,CreatedDate,CreatedById,LastModifiedDate,LastModifiedById
+557dM000005BjRxQAK,First Response to Customer,Sets a non-recurring milestone for the time agents take to send their first response to customers.,none,1720590630000,1720590630000,005dM000004WWvKQAW,1720590630000,005dM000004WWvKQAW
+557dM000005BjRyQAK,Escalate Case,Sets a recurring milestone for escalating a Case.,recursIndependently,1720590630000,1720590630000,005dM000004WWvKQAW,1720590630000,005dM000004WWvKQAW
+557dM000005BjRzQAK,Close Case,Sets a sequential recurring milestone for closing a case.,recursChained,1720590630000,1720590630000,005dM000004WWvKQAW,1720590630000,005dM000004WWvKQAW
