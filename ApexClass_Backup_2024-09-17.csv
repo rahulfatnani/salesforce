@@ -1,0 +1,632 @@
+Id,NamespacePrefix,Name,ApiVersion,Status,IsValid,BodyCrc,Body,LengthWithoutComments,CreatedDate,CreatedById,LastModifiedDate,LastModifiedById,SystemModstamp
+01pdM000004XB2QQAW,trlhdtips,tt_UtilController,54.0,Active,False,-1.0,(hidden),-1,2024-07-10T05:50:30Z,005dM000004WE3FQAW,2024-07-10T05:50:30Z,005dM000004WE3FQAW,2024-09-05T19:56:53Z
+01pdM000004XB2RQAW,trlhdtips,tt_UtilControllerTest,54.0,Active,False,-1.0,(hidden),-1,2024-07-10T05:50:30Z,005dM000004WE3FQAW,2024-07-10T05:50:30Z,005dM000004WE3FQAW,2024-09-05T19:56:53Z
+01pdM000004XQJBQA4,,GeocodingService,55.0,Active,False,3537717298.0,"public with sharing class GeocodingService {
+    private static final String BASE_URL = 'https://nominatim.openstreetmap.org/search?format=json';
+
+    @InvocableMethod(callout=true label='Geocode address')
+    public static List<Coordinates> geocodeAddresses(
+        List<GeocodingAddress> addresses
+    ) {
+        List<Coordinates> computedCoordinates = new List<Coordinates>();
+
+        for (GeocodingAddress address : addresses) {
+            String geocodingUrl = BASE_URL;
+            geocodingUrl += (String.isNotBlank(address.street))
+                ? '&street=' + address.street
+                : '';
+            geocodingUrl += (String.isNotBlank(address.city))
+                ? '&city=' + address.city
+                : '';
+            geocodingUrl += (String.isNotBlank(address.state))
+                ? '&state=' + address.state
+                : '';
+            geocodingUrl += (String.isNotBlank(address.country))
+                ? '&country=' + address.country
+                : '';
+            geocodingUrl += (String.isNotBlank(address.postalcode))
+                ? '&postalcode=' + address.postalcode
+                : '';
+
+            Coordinates coords = new Coordinates();
+            if (geocodingUrl != BASE_URL) {
+                Http http = new Http();
+                HttpRequest request = new HttpRequest();
+                request.setEndpoint(geocodingUrl);
+                request.setMethod('GET');
+                request.setHeader(
+                    'http-referer',
+                    URL.getSalesforceBaseUrl().toExternalForm()
+                );
+                HttpResponse response = http.send(request);
+                if (response.getStatusCode() == 200) {
+                    List<Coordinates> deserializedCoords = (List<Coordinates>) JSON.deserialize(
+                        response.getBody(),
+                        List<Coordinates>.class
+                    );
+                    coords = deserializedCoords[0];
+                }
+            }
+
+            computedCoordinates.add(coords);
+        }
+        return computedCoordinates;
+    }
+
+    public class GeocodingAddress {
+        @InvocableVariable
+        public String street;
+        @InvocableVariable
+        public String city;
+        @InvocableVariable
+        public String state;
+        @InvocableVariable
+        public String country;
+        @InvocableVariable
+        public String postalcode;
+    }
+
+    public class Coordinates {
+        @InvocableVariable
+        public Decimal lat;
+        @InvocableVariable
+        public Decimal lon;
+    }
+}",2570,2024-07-10T06:10:06Z,005dM000004WE3FQAW,2024-07-10T06:10:06Z,005dM000004WE3FQAW,2024-09-05T19:56:53Z
+01pdM000004XQJCQA4,,GeocodingServiceTest,55.0,Active,False,1573046354.0,"@isTest
+private with sharing class GeocodingServiceTest {
+    private static final String STREET = 'Camino del Jueves 26';
+    private static final String CITY = 'Armilla';
+    private static final String POSTAL_CODE = '18100';
+    private static final String STATE = 'Granada';
+    private static final String COUNTRY = 'Spain';
+    private static final Decimal LATITUDE = 3.123;
+    private static final Decimal LONGITUDE = 31.333;
+
+    @isTest
+    static void successResponse() {
+        // GIVEN
+        GeocodingService.GeocodingAddress address = new GeocodingService.GeocodingAddress();
+        address.street = STREET;
+        address.city = CITY;
+        address.postalcode = POSTAL_CODE;
+        address.state = STATE;
+        address.country = COUNTRY;
+
+        Test.setMock(
+            HttpCalloutMock.class,
+            new OpenStreetMapHttpCalloutMockImpl()
+        );
+
+        // WHEN
+        List<GeocodingService.Coordinates> computedCoordinates = GeocodingService.geocodeAddresses(
+            new List<GeocodingService.GeocodingAddress>{ address }
+        );
+
+        // THEN
+        System.assert(
+            computedCoordinates.size() == 1,
+            'Expected 1 pair of coordinates were returned'
+        );
+        System.assert(
+            computedCoordinates[0].lat == LATITUDE,
+            'Expected mock lat was returned'
+        );
+        System.assert(
+            computedCoordinates[0].lon == LONGITUDE,
+            'Expected mock lon was returned'
+        );
+    }
+    @isTest
+    static void blankAddress() {
+        // GIVEN
+        GeocodingService.GeocodingAddress address = new GeocodingService.GeocodingAddress();
+
+        Test.setMock(
+            HttpCalloutMock.class,
+            new OpenStreetMapHttpCalloutMockImpl()
+        );
+
+        // WHEN
+        List<GeocodingService.Coordinates> computedCoordinates = GeocodingService.geocodeAddresses(
+            new List<GeocodingService.GeocodingAddress>{ address }
+        );
+
+        // THEN
+        System.assert(
+            computedCoordinates.size() == 1,
+            'Expected 1 pair of coordinates were returned'
+        );
+        System.assert(
+            computedCoordinates[0].lat == null,
+            'Expected null lat was returned'
+        );
+        System.assert(
+            computedCoordinates[0].lon == null,
+            'Expected null lon was returned'
+        );
+    }
+    @isTest
+    static void errorResponse() {
+        // GIVEN
+        GeocodingService.GeocodingAddress address = new GeocodingService.GeocodingAddress();
+        address.street = STREET;
+        address.city = CITY;
+        address.postalcode = POSTAL_CODE;
+        address.state = STATE;
+        address.country = COUNTRY;
+
+        Test.setMock(
+            HttpCalloutMock.class,
+            new OpenStreetMapHttpCalloutMockImplError()
+        );
+
+        // WHEN
+        List<GeocodingService.Coordinates> computedCoordinates = GeocodingService.geocodeAddresses(
+            new List<GeocodingService.GeocodingAddress>{ address }
+        );
+
+        // THEN
+        System.assert(
+            computedCoordinates.size() == 1,
+            'Expected 1 pair of coordinates were returned'
+        );
+        System.assert(
+            computedCoordinates[0].lat == null,
+            'Expected null lat was returned'
+        );
+        System.assert(
+            computedCoordinates[0].lon == null,
+            'Expected null lon was returned'
+        );
+    }
+
+    public class OpenStreetMapHttpCalloutMockImpl implements HttpCalloutMock {
+        public HTTPResponse respond(HTTPRequest req) {
+            HttpResponse res = new HttpResponse();
+            res.setHeader('Content-Type', 'application/json');
+            res.setBody('[{""lat"": ' + LATITUDE + ',""lon"": ' + LONGITUDE + '}]');
+            res.setStatusCode(200);
+            return res;
+        }
+    }
+
+    public class OpenStreetMapHttpCalloutMockImplError implements HttpCalloutMock {
+        public HTTPResponse respond(HTTPRequest req) {
+            HttpResponse res = new HttpResponse();
+            res.setHeader('Content-Type', 'application/json');
+            res.setStatusCode(400);
+            return res;
+        }
+    }
+}",4027,2024-07-10T06:10:06Z,005dM000004WE3FQAW,2024-07-10T06:10:06Z,005dM000004WE3FQAW,2024-09-05T19:56:53Z
+01pdM000004XQJDQA4,,PagedResult,55.0,Active,False,3174279783.0,"public with sharing class PagedResult {
+    @AuraEnabled
+    public Integer pageSize { get; set; }
+
+    @AuraEnabled
+    public Integer pageNumber { get; set; }
+
+    @AuraEnabled
+    public Integer totalItemCount { get; set; }
+
+    @AuraEnabled
+    public Object[] records { get; set; }
+}",286,2024-07-10T06:10:06Z,005dM000004WE3FQAW,2024-07-10T06:10:06Z,005dM000004WE3FQAW,2024-09-05T19:56:53Z
+01pdM000004XQJEQA4,,PropertyController,55.0,Active,False,1049403249.0,"public with sharing class PropertyController {
+    private static final Decimal DEFAULT_MAX_PRICE = 9999999;
+    private static final Integer DEFAULT_PAGE_SIZE = 9;
+
+    /**
+     * Endpoint that retrieves a paged and filtered list of properties
+     * @param searchKey String used for searching on property title, city and tags
+     * @param maxPrice Maximum price
+     * @param minBedrooms Minimum number of bedrooms
+     * @param minBathrooms Minimum number of bathrooms
+     * @param pageSize Number of properties per page
+     * @param pageNumber Page number
+     * @return PagedResult object holding the paged and filtered list of properties
+     */
+    @AuraEnabled(cacheable=true scope='global')
+    public static PagedResult getPagedPropertyList(
+        String searchKey,
+        Decimal maxPrice,
+        Integer minBedrooms,
+        Integer minBathrooms,
+        Integer pageSize,
+        Integer pageNumber
+    ) {
+        // Normalize inputs
+        Decimal safeMaxPrice = (maxPrice == null
+            ? DEFAULT_MAX_PRICE
+            : maxPrice);
+        Integer safeMinBedrooms = (minBedrooms == null ? 0 : minBedrooms);
+        Integer safeMinBathrooms = (minBathrooms == null ? 0 : minBathrooms);
+        Integer safePageSize = (pageSize == null
+            ? DEFAULT_PAGE_SIZE
+            : pageSize);
+        Integer safePageNumber = (pageNumber == null ? 1 : pageNumber);
+
+        String searchPattern = '%' + searchKey + '%';
+        Integer offset = (safePageNumber - 1) * safePageSize;
+
+        PagedResult result = new PagedResult();
+        result.pageSize = safePageSize;
+        result.pageNumber = safePageNumber;
+        result.totalItemCount = [
+            SELECT COUNT()
+            FROM Property__c
+            WHERE
+                (Name LIKE :searchPattern
+                OR City__c LIKE :searchPattern
+                OR Tags__c LIKE :searchPattern)
+                AND Price__c <= :safeMaxPrice
+                AND Beds__c >= :safeMinBedrooms
+                AND Baths__c >= :safeMinBathrooms
+        ];
+        result.records = [
+            SELECT
+                Id,
+                Address__c,
+                City__c,
+                State__c,
+                Description__c,
+                Price__c,
+                Baths__c,
+                Beds__c,
+                Thumbnail__c,
+                Location__Latitude__s,
+                Location__Longitude__s
+            FROM Property__c
+            WHERE
+                (Name LIKE :searchPattern
+                OR City__c LIKE :searchPattern
+                OR Tags__c LIKE :searchPattern)
+                AND Price__c <= :safeMaxPrice
+                AND Beds__c >= :safeMinBedrooms
+                AND Baths__c >= :safeMinBathrooms
+            WITH SECURITY_ENFORCED
+            ORDER BY Price__c
+            LIMIT :safePageSize
+            OFFSET :offset
+        ];
+        return result;
+    }
+
+    /**
+     * Endpoint that retrieves pictures associated with a property
+     * @param propertyId Property Id
+     * @return List of ContentVersion holding the pictures
+     */
+    @AuraEnabled(cacheable=true scope='global')
+    public static List<ContentVersion> getPictures(Id propertyId) {
+        List<ContentDocumentLink> links = [
+            SELECT Id, LinkedEntityId, ContentDocumentId
+            FROM ContentDocumentLink
+            WHERE
+                LinkedEntityId = :propertyId
+                AND ContentDocument.FileType IN ('PNG', 'JPG', 'GIF')
+            WITH SECURITY_ENFORCED
+        ];
+
+        if (links.isEmpty()) {
+            return null;
+        }
+
+        Set<Id> contentIds = new Set<Id>();
+
+        for (ContentDocumentLink link : links) {
+            contentIds.add(link.ContentDocumentId);
+        }
+
+        return [
+            SELECT Id, Title
+            FROM ContentVersion
+            WHERE ContentDocumentId IN :contentIds AND IsLatest = TRUE
+            WITH SECURITY_ENFORCED
+            ORDER BY CreatedDate
+        ];
+    }
+}",3266,2024-07-10T06:10:06Z,005dM000004WE3FQAW,2024-07-10T06:10:06Z,005dM000004WE3FQAW,2024-09-05T19:56:53Z
+01pdM000004XQJFQA4,,SampleDataController,55.0,Active,False,2837732547.0,"public with sharing class SampleDataController {
+    @AuraEnabled
+    public static void importSampleData() {
+        delete [SELECT Id FROM Case];
+        delete [SELECT Id FROM Property__c];
+        delete [SELECT Id FROM Broker__c];
+        delete [SELECT Id FROM Contact];
+
+        insertBrokers();
+        insertProperties();
+        insertContacts();
+    }
+
+    private static void insertBrokers() {
+        StaticResource brokersResource = [
+            SELECT Id, Body
+            FROM StaticResource
+            WHERE Name = 'sample_data_brokers'
+        ];
+        String brokersJSON = brokersResource.body.toString();
+        List<Broker__c> brokers = (List<Broker__c>) JSON.deserialize(
+            brokersJSON,
+            List<Broker__c>.class
+        );
+        insert brokers;
+    }
+
+    private static void insertProperties() {
+        StaticResource propertiesResource = [
+            SELECT Id, Body
+            FROM StaticResource
+            WHERE Name = 'sample_data_properties'
+        ];
+        String propertiesJSON = propertiesResource.body.toString();
+        List<Property__c> properties = (List<Property__c>) JSON.deserialize(
+            propertiesJSON,
+            List<Property__c>.class
+        );
+        randomizeDateListed(properties);
+        insert properties;
+    }
+
+    private static void insertContacts() {
+        StaticResource contactsResource = [
+            SELECT Id, Body
+            FROM StaticResource
+            WHERE Name = 'sample_data_contacts'
+        ];
+        String contactsJSON = contactsResource.body.toString();
+        List<Contact> contacts = (List<Contact>) JSON.deserialize(
+            contactsJSON,
+            List<Contact>.class
+        );
+        insert contacts;
+    }
+
+    private static void randomizeDateListed(List<Property__c> properties) {
+        for (Property__c property : properties) {
+            property.Date_Listed__c =
+                System.today() - Integer.valueof((Math.random() * 90));
+        }
+    }
+}",1994,2024-07-10T06:10:06Z,005dM000004WE3FQAW,2024-07-10T06:10:06Z,005dM000004WE3FQAW,2024-09-05T19:56:53Z
+01pdM000004XQJGQA4,,TestPropertyController,55.0,Active,False,3290859591.0,"@isTest
+private class TestPropertyController {
+    private final static String MOCK_PICTURE_NAME = 'MockPictureName';
+
+    public static void createProperties(Integer amount) {
+        List<Property__c> properties = new List<Property__c>();
+        for (Integer i = 0; i < amount; i++) {
+            properties.add(
+                new Property__c(
+                    Name = 'Name ' + i,
+                    Price__c = 20000,
+                    Beds__c = 3,
+                    Baths__c = 3
+                )
+            );
+        }
+        insert properties;
+    }
+
+    @isTest
+    static void testGetPagedPropertyList() {
+        Profile standardUserProfile = [
+            SELECT Name, Id
+            FROM Profile
+            WHERE
+                UserType = 'Standard'
+                AND PermissionsPrivacyDataAccess = FALSE
+                AND PermissionsSubmitMacrosAllowed = TRUE
+                AND PermissionsMassInlineEdit = TRUE
+            LIMIT 1
+        ];
+        User testUser = new User(
+            Alias = 'standt',
+            Email = 'standarduser@testorg.com',
+            EmailEncodingKey = 'UTF-8',
+            LastName = 'Testing',
+            LanguageLocaleKey = 'en_US',
+            LocaleSidKey = 'en_US',
+            ProfileId = standardUserProfile.Id,
+            TimeZoneSidKey = 'America/Los_Angeles',
+            UserName = 'standarduser@dreamhouse-testorg.com'
+        );
+        insert testUser;
+        PermissionSet ps = [
+            SELECT Id
+            FROM PermissionSet
+            WHERE Name = 'dreamhouse'
+        ];
+        insert new PermissionSetAssignment(
+            AssigneeId = testUser.Id,
+            PermissionSetId = ps.Id
+        );
+
+        // Insert test properties as admin
+        System.runAs(new User(Id = UserInfo.getUserId())) {
+            TestPropertyController.createProperties(5);
+        }
+        // Read properties as test user
+        System.runAs(testUser) {
+            Test.startTest();
+            PagedResult result = PropertyController.getPagedPropertyList(
+                '',
+                999999,
+                0,
+                0,
+                10,
+                1
+            );
+            Test.stopTest();
+            System.assertEquals(5, result.records.size());
+        }
+    }
+
+    @isTest
+    static void testGetPicturesNoResults() {
+        Property__c property = new Property__c(Name = 'Name');
+        insert property;
+
+        Test.startTest();
+        List<ContentVersion> items = PropertyController.getPictures(
+            property.Id
+        );
+        Test.stopTest();
+
+        System.assertEquals(null, items);
+    }
+
+    @isTest
+    static void testGetPicturesWithResults() {
+        Property__c property = new Property__c(Name = 'Name');
+        insert property;
+
+        // Insert mock picture
+        ContentVersion picture = new Contentversion();
+        picture.Title = MOCK_PICTURE_NAME;
+        picture.PathOnClient = 'picture.png';
+        picture.Versiondata = EncodingUtil.base64Decode('MockValue');
+        insert picture;
+
+        // Link picture to property record
+        List<ContentDocument> documents = [
+            SELECT Id, Title, LatestPublishedVersionId
+            FROM ContentDocument
+            LIMIT 1
+        ];
+        ContentDocumentLink link = new ContentDocumentLink();
+        link.LinkedEntityId = property.Id;
+        link.ContentDocumentId = documents[0].Id;
+        link.shareType = 'V';
+        insert link;
+
+        Test.startTest();
+        List<ContentVersion> items = PropertyController.getPictures(
+            property.Id
+        );
+        Test.stopTest();
+
+        System.assertEquals(1, items.size());
+        System.assertEquals(MOCK_PICTURE_NAME, items[0].Title);
+    }
+}",3570,2024-07-10T06:10:06Z,005dM000004WE3FQAW,2024-07-10T06:10:06Z,005dM000004WE3FQAW,2024-09-05T19:56:53Z
+01pdM000004XQJHQA4,,TestSampleDataController,55.0,Active,False,1457500984.0,"@isTest
+private class TestSampleDataController {
+    @isTest
+    static void importSampleData() {
+        Test.startTest();
+        SampleDataController.importSampleData();
+        Test.stopTest();
+
+        Integer propertyNumber = [SELECT COUNT() FROM Property__c];
+        Integer brokerNumber = [SELECT COUNT() FROM Broker__c];
+        Integer contactNumber = [SELECT COUNT() FROM Contact];
+
+        System.assert(propertyNumber > 0, 'Expected properties were created.');
+        System.assert(brokerNumber > 0, 'Expected brokers were created.');
+        System.assert(contactNumber > 0, 'Expected contacts were created.');
+    }
+}",633,2024-07-10T06:10:06Z,005dM000004WE3FQAW,2024-07-10T06:10:06Z,005dM000004WE3FQAW,2024-09-05T19:56:53Z
+01pdM000005jprVQAQ,,HouseService,61.0,Active,False,1066465403.0,"public with sharing class HouseService {
+    @AuraEnabled(cacheable=true)
+    public static List<House__c> getRecords() {
+        try {
+            // Create a list of House records from a SOQL query
+            List<House__c> lstHouses = [
+                SELECT
+                   Id,
+                   Name,
+                   Address__c,
+                   State__c,
+                   City__c,
+                   Zip__c
+                   FROM House__c
+                   WITH USER_MODE
+                   ORDER BY CreatedDate
+                   LIMIT 10
+                ];
+                  return lstHouses;
+        }
+        // Code to handle exception
+        catch (Exception e) {
+           throw new AuraHandledException(e.getMessage());
+        }
+    }
+}",669,2024-07-30T07:18:50Z,005dM000004WE3FQAW,2024-07-30T07:42:03Z,005dM000004WE3FQAW,2024-09-05T19:56:53Z
+01pdM000005mYa5QAE,,StringListTest,61.0,Active,False,2352474988.0,"public class StringListTest {
+    public static List<String> generateStringList(Integer n){
+        List<String> TestList = new List<String>();
+        for(Integer i=0;i<n;i++){
+            TestList.add('Test '+i);
+            System.debug(TestList[i]);
+        }
+        return TestList;
+    }
+}",297,2024-07-31T06:10:41Z,005dM000004WE3FQAW,2024-07-31T06:19:00Z,005dM000004WE3FQAW,2024-09-05T19:56:53Z
+01pdM000005mZevQAE,,OlderAccountsUtility,61.0,Active,False,439244861.0,"public class OlderAccountsUtility {
+       public static void updateOlderAccounts() {
+           
+      // Get the 5 oldest accounts
+      Account[] oldAccounts = [SELECT Id, Description FROM Account ORDER BY CreatedDate ASC LIMIT 5];
+           
+      // loop through them and update the Description field
+      for (Account acct : oldAccounts) {
+          acct.Description = 'Heritage Account';
+      }
+           
+      // save the change you made
+      update oldAccounts;
+    }
+}",320,2024-07-31T05:12:08Z,005dM000004WE3FQAW,2024-07-31T05:23:35Z,005dM000004WE3FQAW,2024-09-05T19:56:53Z
+01pdM000005mkP4QAI,,EmailManager,61.0,Active,False,160461494.0,"public class EmailManager {
+    // Public method
+    public static void sendMail(String address, String subject, String body) {
+        // Create an email message object
+        Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+        String[] toAddresses = new String[] {address};
+        mail.setToAddresses(toAddresses);
+        mail.setSubject(subject);
+        mail.setPlainTextBody(body);
+        // Pass this email message to the built-in sendEmail method
+        // of the Messaging class
+        Messaging.SendEmailResult[] results = Messaging.sendEmail(
+                                 new Messaging.SingleEmailMessage[] { mail });
+        // Call a helper method to inspect the returned results
+        inspectResults(results);
+    }
+    // Helper method
+    private static Boolean inspectResults(Messaging.SendEmailResult[] results) {
+        Boolean sendResult = true;
+        // sendEmail returns a list of result objects.
+        // Iterate through the list to inspect results.
+        // In this class, the methods send only one email,
+        // so we should have only one result.
+        for (Messaging.SendEmailResult res : results) {
+            if (res.isSuccess()) {
+                System.debug('Email sent successfully');
+            }
+            else {
+                sendResult = false;
+                System.debug('The following errors occurred: ' + res.getErrors());
+            }
+        }
+        return sendResult;
+    }
+}",1015,2024-07-31T05:57:17Z,005dM000004WE3FQAW,2024-07-31T06:09:39Z,005dM000004WE3FQAW,2024-09-05T19:56:53Z
+01pdM000005noPBQAY,,AccountHandler,61.0,Active,False,2695814657.0,"public class AccountHandler {
+    public static Account insertNewAccount(String accountName){
+		Account acct = new Account();
+        acct.Name = accountName;
+        acct.AccountNumber = '12345678';
+        try{
+            insert acct;
+        }
+        catch(DMLException e){
+            System.debug('DML Exception: ' + e.getMessage());
+            return Null;
+        }        
+        return acct;
+    }
+}",413,2024-07-31T10:22:15Z,005dM000004WE3FQAW,2024-08-01T06:50:26Z,005dM000004WE3FQAW,2024-09-05T19:56:53Z
