@@ -1,0 +1,3 @@
+Id,IsDeleted,SobjectType,DeveloperName,Language,MasterLabel,NamespacePrefix,CreatedDate,CreatedById,LastModifiedDate,LastModifiedById,SystemModstamp,IsActive,SobjectSubtype,LastViewedDate
+0BmdM000003hwTdSAI,False,Lead,Standard_Rule_for_Leads_with_Duplicate_Contacts,,Standard Rule for Leads with Duplicate Contacts,,2024-07-10T05:50:30Z,005dM000004WWvKQAW,2024-07-10T05:50:30Z,005dM000004WWvKQAW,2024-07-10T05:50:30Z,False,,
+0BmdM000003hwTeSAI,False,Contact,Standard_Rule_for_Contacts_with_Duplicate_Leads,,Standard Rule for Contacts with Duplicate Leads,,2024-07-10T05:50:30Z,005dM000004WWvKQAW,2024-07-10T05:50:30Z,005dM000004WWvKQAW,2024-07-10T05:50:30Z,False,,
