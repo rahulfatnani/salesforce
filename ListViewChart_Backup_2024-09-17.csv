@@ -1,0 +1,2 @@
+Id,IsDeleted,SobjectType,DeveloperName,Language,MasterLabel,CreatedDate,CreatedById,LastModifiedDate,LastModifiedById,SystemModstamp,OwnerId,ChartType,GroupingField,AggregateField,AggregateType
+0DddM0000000h9pSAA,False,Opportunity,Pipeline_Total_Value,en_US,Pipeline Total Value,2024-07-11T07:45:58Z,005dM000004WE3FQAW,2024-07-11T07:45:58Z,005dM000004WE3FQAW,2024-07-11T07:45:58Z,005dM000004WE3FQAW,pie,Opportunity.AccountId,Opportunity.Amount,Sum
