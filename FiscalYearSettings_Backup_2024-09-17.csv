@@ -1,0 +1,8 @@
+Id,PeriodId,StartDate,EndDate,Name,IsStandardYear,YearType,QuarterLabelScheme,PeriodLabelScheme,WeekLabelScheme,QuarterPrefix,PeriodPrefix,WeekStartDay,Description,SystemModstamp
+022dM000000FY9YQAW,026dM000000SJjAQAW,2023-01-01,2023-12-31,2023,True,Standard,NumberByYear,StandardMonths,NumberByYear,Quarter,Period,,,2024-07-10T06:12:10Z
+022dM000000FY9ZQAW,026dM000000SJjRQAW,2024-01-01,2024-12-31,2024,True,Standard,NumberByYear,StandardMonths,NumberByYear,Quarter,Period,,,2024-07-10T06:12:10Z
+022dM000000FY9aQAG,026dM000000SJjiQAG,2025-01-01,2025-12-31,2025,True,Standard,NumberByYear,StandardMonths,NumberByYear,Quarter,Period,,,2024-07-10T06:12:10Z
+022dM000000FY9bQAG,026dM000000SJjzQAG,2026-01-01,2026-12-31,2026,True,Standard,NumberByYear,StandardMonths,NumberByYear,Quarter,Period,,,2024-07-10T06:12:10Z
+022dM000000FY9cQAG,026dM000000SJkGQAW,2027-01-01,2027-12-31,2027,True,Standard,NumberByYear,StandardMonths,NumberByYear,Quarter,Period,,,2024-07-10T06:12:10Z
+022dM000000FY9dQAG,026dM000000SMdZQAW,2022-01-01,2022-12-31,2022,True,Standard,NumberByYear,StandardMonths,NumberByYear,Quarter,Period,,,2024-07-10T06:12:10Z
+022dM000000FY9eQAG,026dM000000SMdqQAG,2028-01-01,2028-12-31,2028,True,Standard,NumberByYear,StandardMonths,NumberByYear,Quarter,Period,,,2024-07-10T06:12:10Z
