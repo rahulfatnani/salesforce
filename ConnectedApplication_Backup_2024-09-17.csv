@@ -1,0 +1,9 @@
+Id,Name,CreatedDate,CreatedById,LastModifiedDate,LastModifiedById,SystemModstamp,OptionsAllowAdminApprovedUsersOnly,OptionsRefreshTokenValidityMetric,OptionsHasSessionLevelPolicy,OptionsIsInternal,OptionsFullContentPushNotifications,OptionsCodeCredentialGuestEnabled,OptionsAppIssueJwtTokenEnabled,MobileSessionTimeout,PinLength,StartUrl,MobileStartUrl,RefreshTokenValidityPeriod,UvidTimeout,NamedUserUvidTimeout
+0H4dM000002HnPlSAK,Dataloader Bulk,2024-07-10T05:50:30Z,005dM000004WWvKQAW,2024-07-10T05:50:30Z,005dM000004WWvKQAW,2024-07-10T05:50:30Z,False,False,False,False,True,False,False,,,,,,,
+0H4dM000002HnPmSAK,Dataloader Partner,2024-07-10T05:50:30Z,005dM000004WWvKQAW,2024-07-10T05:50:30Z,005dM000004WWvKQAW,2024-07-10T05:50:30Z,False,False,False,False,True,False,False,,,,,,,
+0H4dM000002HnPnSAK,Force.com IDE,2024-07-10T05:50:30Z,005dM000004WWvKQAW,2024-07-10T05:50:30Z,005dM000004WWvKQAW,2024-07-10T05:50:30Z,False,False,False,False,True,False,False,,,,,,,
+0H4dM000002HnPoSAK,Ant Migration Tool,2024-07-10T05:50:30Z,005dM000004WWvKQAW,2024-07-10T05:50:30Z,005dM000004WWvKQAW,2024-07-10T05:50:30Z,False,False,False,False,True,False,False,,,,,,,
+0H4dM000002HnPpSAK,Salesforce Mobile Dashboards,2024-07-10T05:50:30Z,005dM000004WWvKQAW,2024-07-10T05:50:30Z,005dM000004WWvKQAW,2024-07-10T05:50:30Z,False,False,False,False,True,False,False,,,,,,,
+0H4dM000002HnPqSAK,Salesforce Touch,2024-07-10T05:50:30Z,005dM000004WWvKQAW,2024-07-10T05:50:30Z,005dM000004WWvKQAW,2024-07-10T05:50:30Z,False,False,False,False,True,False,False,,,,,,,
+0H4dM000002HnPrSAK,Salesforce for Outlook,2024-07-10T05:50:30Z,005dM000004WWvKQAW,2024-07-10T05:50:30Z,005dM000004WWvKQAW,2024-07-10T05:50:30Z,False,False,False,False,False,False,False,,,,,,,
+0H4dM000002HnPsSAK,Workbench,2024-07-10T05:50:30Z,005dM000004WWvKQAW,2024-07-10T05:50:30Z,005dM000004WWvKQAW,2024-07-10T05:50:30Z,False,False,False,False,True,False,False,,,,,,,
