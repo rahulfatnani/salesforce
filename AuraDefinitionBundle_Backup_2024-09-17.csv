@@ -1,0 +1,10 @@
+Id,IsDeleted,DeveloperName,Language,MasterLabel,NamespacePrefix,CreatedDate,CreatedById,LastModifiedDate,LastModifiedById,SystemModstamp,ApiVersion,Description
+0AbdM000000nqtVSAQ,False,tt_login_cred_cmp,en_US,tt_login_cred_cmp,trlhdtips,2024-07-10T05:50:30Z,005dM000004WE3FQAW,2024-07-10T05:50:30Z,005dM000004WE3FQAW,2024-07-10T05:50:30Z,54.0,User info.
+0AbdM000000nqtWSAQ,False,tt_install_package_cmp,en_US,tt_install_package_cmp,trlhdtips,2024-07-10T05:50:30Z,005dM000004WE3FQAW,2024-07-10T05:50:30Z,005dM000004WE3FQAW,2024-07-10T05:50:30Z,54.0,User info.
+0AbdM000000nqtXSAQ,False,tt_remove_padding_cmp,en_US,tt_remove_padding_cmp,trlhdtips,2024-07-10T05:50:30Z,005dM000004WE3FQAW,2024-07-10T05:50:30Z,005dM000004WE3FQAW,2024-07-10T05:50:30Z,54.0,User info.
+0AbdM000000nqtYSAQ,False,tt_welcome_cmp,en_US,tt_welcome_cmp,trlhdtips,2024-07-10T05:50:30Z,005dM000004WE3FQAW,2024-07-10T05:50:30Z,005dM000004WE3FQAW,2024-07-10T05:50:30Z,54.0,User info.
+0AbdM000000nqtZSAQ,False,tt_user_info_cmp,en_US,tt_user_info_cmp,trlhdtips,2024-07-10T05:50:30Z,005dM000004WE3FQAW,2024-07-10T05:50:30Z,005dM000004WE3FQAW,2024-07-10T05:50:30Z,54.0,User info.
+0AbdM000000nqtaSAA,False,tt_confirm_evt,en_US,tt_confirm_evt,trlhdtips,2024-07-10T05:50:30Z,005dM000004WE3FQAW,2024-07-10T05:50:30Z,005dM000004WE3FQAW,2024-07-10T05:50:30Z,54.0,A Lightning Component Bundle
+0AbdM000000nqtbSAA,False,tt_confirm_cmp,en_US,tt_confirm_cmp,trlhdtips,2024-07-10T05:50:30Z,005dM000004WE3FQAW,2024-07-10T05:50:30Z,005dM000004WE3FQAW,2024-07-10T05:50:30Z,54.0,A Lightning Component Bundle
+0AbdM000000nrw1SAA,False,pageTemplate_2_7_3,en_US,pageTemplate_2_7_3,,2024-07-10T06:09:57Z,005dM000004WE3FQAW,2024-07-10T06:09:57Z,005dM000004WE3FQAW,2024-07-10T06:09:57Z,55.0,A Lightning Component Bundle
+0AbdM000000nrw2SAA,False,auraPropertyListMap,en_US,auraPropertyListMap,,2024-07-10T06:09:57Z,005dM000004WE3FQAW,2024-07-10T06:09:57Z,005dM000004WE3FQAW,2024-07-10T06:09:57Z,55.0,A Lightning Component Bundle
